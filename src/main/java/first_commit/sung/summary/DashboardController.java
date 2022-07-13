@@ -32,7 +32,7 @@ public class DashboardController {
     @RequestMapping("/receiver")
     public String getJson(@RequestParam("jsonfile") String jsonfile){
         log.info("data ={}",jsonfile );
-        return jsonfile;
+        return "ok";
     }
 
 
