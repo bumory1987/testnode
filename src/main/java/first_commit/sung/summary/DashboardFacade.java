@@ -13,8 +13,8 @@ import java.util.List;
 public class DashboardFacade {
     private final DashboardService dashboardService;
 
-    public String getJsonList(){
-        List<SummaryDto> summaryDtos = dashboardService.showSummaryList(4);
+    public String getJsonList(int count){
+        List<SummaryDto> summaryDtos = dashboardService.showSummaryList(count);
         JsonObject obj = new JsonObject();
 
         summaryDtos.stream().forEach(item -> {
