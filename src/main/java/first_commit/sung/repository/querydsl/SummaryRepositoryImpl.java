@@ -1,14 +1,12 @@
 package first_commit.sung.repository.querydsl;
 
 
+import com.google.gson.Gson;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import first_commit.sung.entity.QSummary;
 import first_commit.sung.entity.dto.QSummaryDto;
 import first_commit.sung.entity.dto.SummaryDto;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 import static first_commit.sung.entity.QSummary.summary;
@@ -25,6 +23,8 @@ public class SummaryRepositoryImpl implements SummaryRepositoryCustom {
 
     @Override
     public List<SummaryDto> findSummaryWithCondition(SummaryCondition condition) {
+        Gson gson = new Gson();
+
         return queryFactory
                 .select(new QSummaryDto(
                         summary.id,
@@ -32,4 +32,7 @@ public class SummaryRepositoryImpl implements SummaryRepositoryCustom {
                         summary.createdDate))
                 .from(summary).limit(condition.getLimit()).fetch();
     }
+
+
+
 }

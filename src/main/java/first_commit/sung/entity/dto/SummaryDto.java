@@ -1,5 +1,6 @@
 package first_commit.sung.entity.dto;
 
+import com.google.gson.Gson;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,8 @@ public class SummaryDto {
         this.info = info;
         this.createdDate =createdDate;
     }
+
+
 
 
 }

@@ -1,6 +1,7 @@
 package first_commit.sung.summary;
 
 
+import first_commit.sung.entity.Summary;
 import first_commit.sung.entity.dto.SummaryDto;
 import first_commit.sung.repository.SummaryRepository;
 import first_commit.sung.repository.querydsl.SummaryCondition;
@@ -21,4 +22,10 @@ public class DashboardService {
         return summaryRepository.findSummaryWithCondition(summaryCondition);
     }
 
+
+    public Summary save(String info){
+        Summary summary = new Summary(info);
+        Summary saveSummary = summaryRepository.save(summary);
+        return saveSummary;
+    }
 }
